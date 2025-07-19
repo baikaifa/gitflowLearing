@@ -4,9 +4,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
-      - run: ls
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: node --version
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
