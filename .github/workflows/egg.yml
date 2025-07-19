@@ -11,10 +11,15 @@ jobs:
       - name: 读取仓库内容
         uses: actions/checkout@v4
 
+      - name: 查看当前目录
+        run: ls -al
+
       - name: 安装依赖和项目打包
         run: |
             npm install
             npm run build
+            ls -al
+            ls -al build || echo "build 目录不存在"
       - name: 部署
         uses: JamesIves/github-pages-deploy-action@v4
         with:
