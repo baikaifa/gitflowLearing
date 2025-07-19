@@ -1,11 +1,15 @@
+name: 打包React项目
 on: push
 
 jobs:
-  job1:
+  npm-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Install dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 项目打包
+        run: npm run build
